@@ -1,0 +1,43 @@
+<odoo>
+    <data>
+        <!-- Inicia la modificación de la vista -->
+        <record id="view_order_form_inherit_applicable_products" model="ir.ui.view">
+            <field name="name">sale.order.line.applicable.products</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+
+                 <!-- Campo nuevo para seleccionar productos filtrados 
+                <xpath expr="//field[@name='product_id']" position="after">
+                    <field name="filtered_product_id"
+                        domain="[('id', 'in', applicable_product_ids.ids)]"
+
+                        string="Filtered Product"
+                    />
+                        domain="[('sale_ok', '=', True), ('id', 'in', applicable_product_ids.ids)]"
+                        domain="[(('sale_ok', '=', True), '|', ('id', 'in', applicable_product_ids.ids), ('id', '=', False))]"
+                </xpath>
+                
+                <xpath expr="//field[@name='product_id']" position="before">
+                    <field name="applicable_product_ids" invisible="1"/>
+                </xpath>
+                
+                <xpath expr="//field[@name='product_id']" position="replace">
+                    <field name="product_id" 
+                           domain="[('sale_ok', '=', True), ('id', 'in', applicable_product_ids.ids)]"
+                           context="{'partner_id': parent.partner_id, 
+                                     'quantity': product_uom_qty, 
+                                     'pricelist': parent.pricelist_id, 
+                                     'uom': product_uom, 
+                                     'company_id': parent.company_id}" 
+                           readonly="not product_updatable" 
+                           required="not display_type" 
+                           widget="many2one_barcode"/>
+                </xpath>-->
+                <xpath expr="//field[@name='product_id']" position="after">
+                    <field name="select_list"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
